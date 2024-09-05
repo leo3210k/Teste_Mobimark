@@ -8,11 +8,18 @@ import reportWebVitals from './reportWebVitals';
 
 import './index.css';
 import App from './main/App';
+import Login from './components/Login'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        index: true,
+        element: <Login />,
+      },
+    ]
   },
 ]);
 
