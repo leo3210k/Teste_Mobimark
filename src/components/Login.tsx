@@ -19,7 +19,10 @@ function Login() {
               <label htmlFor="" className="">Senha</label>
               <TextField id="outlined-basic" variant="outlined" size="small" className="w-[25rem]" />
             </div>
-            
+            <div className="flex justify-between items-center">
+              <a href="/" className="text-xl hover:border-b-2 border-neutral-900">Esqueceu a senha?</a>
+              <Button variant="contained" className="!capitalize w-40 h-14 !bg-black/80 !font-medium">Entrar</Button>
+            </div>
           </form>
         </div>
         <img src="/assets/images/login-background.png" className="absolute bottom-0" alt="login-background" />
