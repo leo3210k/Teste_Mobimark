@@ -8,6 +8,7 @@ function Login() {
     <div className="flex">
       <img className="w-7/12 h-screen" src="/assets/images/login-image.png" alt="login-image" />
       <div className="relative w-5/12 flex"> 
+        <img src="/assets/images/login-background.png" className="absolute bottom-0" alt="login-background" />
       </div>
     </div>
   );
