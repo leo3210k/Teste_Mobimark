@@ -15,7 +15,10 @@ function Login() {
               <label htmlFor="" className="">Email</label>
               <TextField id="outlined-basic" variant="outlined" size="small" className="w-[25rem]" />
             </div>
-            
+            <div className="flex flex-col gap-y-1">
+              <label htmlFor="" className="">Senha</label>
+              <TextField id="outlined-basic" variant="outlined" size="small" className="w-[25rem]" />
+            </div>
             
           </form>
         </div>
