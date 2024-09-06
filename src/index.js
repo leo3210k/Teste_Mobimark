@@ -13,7 +13,7 @@ import Main from './components/Main'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/login",
     element: <App />,
     children: [
       {
