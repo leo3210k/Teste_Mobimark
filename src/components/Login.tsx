@@ -10,6 +10,8 @@ function Login() {
       <div className="relative w-5/12 flex"> 
         <div className="relative flex flex-col justify-center items-center font-black text-black mx-auto">
           <h1 className="text-4xl mb-16">Login</h1>
+          <form action="" className="flex flex-col gap-8">
+          </form>
         </div>
         <img src="/assets/images/login-background.png" className="absolute bottom-0" alt="login-background" />
       </div>
