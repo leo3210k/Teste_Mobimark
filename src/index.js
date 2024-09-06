@@ -13,16 +13,16 @@ import Main from './components/Main'
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/",
     element: <App />,
     children: [
       {
         index: true,
-        element: <Login />,
+        element: <Main />,
       },
       {
-        path: "/",
-        element: <Main />,
+        path: "/login",
+        element: <Login />,
       },
     ]
   },
