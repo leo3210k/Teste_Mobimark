@@ -4,7 +4,7 @@ import Header from './Header';
 
 function Main() {
   return (
-    <div className="">
+    <div className="grid grid-rows-[80px_1fr]">
       <Header />
     </div>
   );
