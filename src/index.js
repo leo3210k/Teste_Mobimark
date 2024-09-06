@@ -9,6 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './main/App';
 import Login from './components/Login'
+import Main from './components/Main'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Login />,
+      },
+      {
+        path: "/",
+        element: <Main />,
       },
     ]
   },
