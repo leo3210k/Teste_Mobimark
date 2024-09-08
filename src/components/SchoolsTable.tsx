@@ -136,12 +136,10 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="normal">
-        </TableCell>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
+            align='center'
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -226,20 +224,18 @@ export default function SchoolsTable() {
                     key={row.id}
                     sx={{ cursor: 'pointer' }}
                   >
-                    <TableCell padding="normal">
-                    </TableCell>
                     <TableCell
                       component="th"
                       id={labelId}
                       scope="row"
-                      padding="none"
+                      align="center"
                     >
                       {row.name}
                     </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
+                    <TableCell align="center">{row.calories}</TableCell>
+                    <TableCell align="center">{row.fat}</TableCell>
+                    <TableCell align="center">{row.carbs}</TableCell>
+                    <TableCell align="center">{row.protein}</TableCell>
                   </TableRow>
                 );
               })}
