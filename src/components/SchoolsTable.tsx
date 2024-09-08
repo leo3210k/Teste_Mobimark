@@ -166,27 +166,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   );
 }
 
-function EnhancedTableToolbar() {
-  return (
-    <Toolbar
-      sx={[
-        {
-          pl: { sm: 2 },
-          pr: { xs: 1, sm: 1 },
-        },
-      ]}
-    >
-      <Typography
-        sx={{ flex: '1 1 100%' }}
-        variant="h6"
-        id="tableTitle"
-        component="div"
-      >
-        Nutrition
-      </Typography>
-    </Toolbar>
-  );
-}
 export default function SchoolsTable() {
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof Data>('calories');
@@ -226,7 +205,6 @@ export default function SchoolsTable() {
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
-        <EnhancedTableToolbar />
         <TableContainer>
           <Table
             sx={{ minWidth: 750 }}
