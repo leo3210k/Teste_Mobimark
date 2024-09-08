@@ -20,6 +20,7 @@ function Header() {
         </div>
         <img src="/assets/icons/profile.svg" className="w-10 h-10" alt="profile" />
         <span className="font-bold">Leonardo</span>
+        <img src="/assets/icons/down_arrow.svg" className="w-8 h-8" alt="down_arrow" />
       </div>
     </div>
   );
