@@ -30,7 +30,7 @@ function Schools() {
                 ),
               },
             }}
-            className="w-[30rem] !bg-white"
+            className="w-[20rem] !bg-white"
           />
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Age</InputLabel>
