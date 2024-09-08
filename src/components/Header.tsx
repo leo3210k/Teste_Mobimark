@@ -18,6 +18,7 @@ function Header() {
           <img src="/assets/icons/bell.svg" className="w-6 h-6" alt="bell" />
           <div className="absolute -top-0.5 right-0 w-3 h-3 bg-royal-blue rounded-full"></div>
         </div>
+        <img src="/assets/icons/profile.svg" className="w-10 h-10" alt="profile" />
       </div>
     </div>
   );
