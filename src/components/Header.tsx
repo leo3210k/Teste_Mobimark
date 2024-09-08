@@ -11,6 +11,8 @@ function Header() {
         <CustomLink href="/" title="Escolas"/>
         <CustomLink href="/" title="Sobre"/>
       </nav>
+      <div className="flex-1 flex justify-end items-center gap-6">
+      </div>
     </div>
   );
 }
