@@ -30,7 +30,7 @@ function Schools() {
                 ),
               },
             }}
-            className="w-[30rem]"
+            className="w-[30rem] !bg-white"
           />
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Age</InputLabel>
@@ -40,7 +40,7 @@ function Schools() {
               size="small"
               value="age"
               label="Age"
-              className="w-[10rem]"
+              className="w-[10rem] !bg-white"
             >
               <MenuItem value={10}>Ten</MenuItem>
               <MenuItem value={20}>Twenty</MenuItem>
