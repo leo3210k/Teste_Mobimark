@@ -13,7 +13,7 @@ import SchoolsTable from "./SchoolsTable";
 function Schools() {
   return (
     <div className="flex justify-center items-center bg-aqua-haze">
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-4">
         <h2 className="text-2xl font-bold mb-6">Escolas</h2>
         <div className="flex gap-6">
           <TextField
