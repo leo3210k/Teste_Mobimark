@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import Header from './Header';
+import Header from "./Header";
+import Table from "./Table";
 
 function Main() {
   return (
-    <div className="grid grid-rows-[80px_1fr]">
+    <div className="h-screen grid grid-rows-[80px,1fr]">
       <Header />
+      <Table />
     </div>
   );
 }
