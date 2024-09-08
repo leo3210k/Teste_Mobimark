@@ -14,6 +14,9 @@ function Header() {
       <div className="flex-1 flex justify-end items-center gap-6">
         <img src="/assets/icons/book.svg" className="w-6 h-6" alt="book" />
         <img src="/assets/icons/gear.svg" className="w-6 h-6" alt="gear" />
+        <div className="relative">
+          <img src="/assets/icons/bell.svg" className="w-6 h-6" alt="bell" />
+        </div>
       </div>
     </div>
   );
