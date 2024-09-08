@@ -8,7 +8,9 @@ import {
   TextField,
 } from "@mui/material";
 
-function Table() {
+import SchoolsTable from "./SchoolsTable";
+
+function Schools() {
   return (
     <div className="flex justify-center items-center bg-aqua-haze">
       <div className="flex flex-col">
@@ -46,9 +48,10 @@ function Table() {
             </Select>
           </FormControl>
         </div>
+        <SchoolsTable />
       </div>
     </div>
   );
 }
 
-export default Table;
+export default Schools;
