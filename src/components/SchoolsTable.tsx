@@ -138,7 +138,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="none">
+        <TableCell padding="normal">
         </TableCell>
         {headCells.map((headCell) => (
           <TableCell
@@ -250,7 +250,7 @@ export default function SchoolsTable() {
                     key={row.id}
                     sx={{ cursor: 'pointer' }}
                   >
-                    <TableCell padding="checkbox">
+                    <TableCell padding="normal">
                     </TableCell>
                     <TableCell
                       component="th"
