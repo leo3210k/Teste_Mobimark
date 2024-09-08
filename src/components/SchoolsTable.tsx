@@ -205,7 +205,7 @@ export default function SchoolsTable() {
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
           <Table
-            sx={{ minWidth: 750 }}
+            sx={{ minWidth: 1300 }}
             aria-labelledby="tableTitle"
             size='medium'
           >
