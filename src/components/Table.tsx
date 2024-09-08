@@ -7,6 +7,7 @@ function Table() {
       <div className="flex flex-col">
         <h2 className="text-2xl font-bold">Escolas</h2>
         <div className="flex gap-6">
+          <TextField id="outlined-basic" label="Pesquise pelo nome" size="small" variant="outlined" className="w-[30rem]" />
         </div>
       </div>
     </div>
