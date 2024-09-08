@@ -16,6 +16,7 @@ function Header() {
         <img src="/assets/icons/gear.svg" className="w-6 h-6" alt="gear" />
         <div className="relative">
           <img src="/assets/icons/bell.svg" className="w-6 h-6" alt="bell" />
+          <div className="absolute -top-0.5 right-0 w-3 h-3 bg-royal-blue rounded-full"></div>
         </div>
       </div>
     </div>
