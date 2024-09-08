@@ -56,7 +56,7 @@ const headCells: readonly HeadCell[] = [
   {
     id: 'nome',
     numeric: false,
-    disablePadding: true,
+    disablePadding: false,
     label: 'Nome',
   },
   {
