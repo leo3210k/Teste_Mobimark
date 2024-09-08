@@ -14,7 +14,7 @@ function Schools() {
   return (
     <div className="flex justify-center items-center bg-aqua-haze">
       <div className="flex flex-col">
-        <h2 className="text-2xl font-bold">Escolas</h2>
+        <h2 className="text-2xl font-bold mb-6">Escolas</h2>
         <div className="flex gap-6">
           <TextField
             id="outlined-basic"
