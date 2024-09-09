@@ -7,9 +7,15 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import MultipleSelectChip from './utils/MultiSelectChip';
+import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
+  const [location, setLocation] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setLocation(event.target.value);
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -34,7 +40,7 @@ export default function FormDialog() {
             const formData = new FormData(event.currentTarget);
             const formJson = Object.fromEntries((formData as any).entries());
             const email = formJson.email;
-            console.log(email);
+            console.log(formJson);
             handleClose();
           },
         }}
@@ -80,17 +86,23 @@ export default function FormDialog() {
               fullWidth
               variant="outlined"
             />
-            <TextField
-              autoFocus
-              required
-              margin="dense"
-              id="location"
-              name="location"
-              label="Localização"
-              type="location"
-              fullWidth
-              variant="outlined"
-            />
+            <FormControl className="w-full" margin="dense">
+              <InputLabel id="location-autowidth-label">Localização</InputLabel>
+              <Select
+                required
+                labelId="location-autowidth-label"
+                id="location-autowidth"
+                name="location"
+                type="location"
+                value={location}
+                onChange={handleChange}
+                autoWidth
+                label="Localização"
+              >
+                <MenuItem value="Urbana">Urbana</MenuItem>
+                <MenuItem value="Rural">Rural</MenuItem>
+              </Select>
+            </FormControl>
           </div>
           <MultipleSelectChip />
         </DialogContent>
