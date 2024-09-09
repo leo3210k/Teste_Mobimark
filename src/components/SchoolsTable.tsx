@@ -11,7 +11,6 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import axios from 'axios';
-import { create } from '@mui/material/styles/createTransitions';
 
 interface Data {
   nome: string;
