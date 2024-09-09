@@ -52,14 +52,16 @@ export default function MultipleSelectChip() {
   return (
     <div>
       <FormControl margin="dense" required className="w-full">
-        <InputLabel id="demo-multiple-chip-label">Turnos</InputLabel>
+        <InputLabel id="shifts-label">Turnos</InputLabel>
         <Select
-          labelId="demo-multiple-chip-label"
-          id="demo-multiple-chip"
+          name="shifts"
+          labelId="shifts-label"
+          id="shifts"
           multiple
+          type="shifts"
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          input={<OutlinedInput id="shifts-multiple" label="shifts" />}
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (
