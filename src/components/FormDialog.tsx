@@ -6,6 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import MultipleSelectChip from './utils/MultiSelectChip';
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -102,6 +103,7 @@ export default function FormDialog() {
             fullWidth
             variant="outlined"
           />
+          <MultipleSelectChip />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
