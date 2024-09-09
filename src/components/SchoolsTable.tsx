@@ -10,6 +10,8 @@ import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
+import axios from 'axios';
+import { create } from '@mui/material/styles/createTransitions';
 
 interface Data {
   nome: string;
@@ -18,8 +20,6 @@ interface Data {
   turnos: string;
   cidade: string;
 }
-
-const rows: Data[] = [];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -130,10 +130,37 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 }
 
 export default function SchoolsTable() {
+  const [rows, setRows] = React.useState<Data[]>([]);
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof Data>('nome');
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      let token = '45|YHAUKjrAHBw3LAQyO1rDj1vHQACYGWkDBfpmvg5cbed03fd4';
+      let config = {
+        headers: { Authorization: `Bearer ${token}` }
+      }
+
+      try {
+        const response = await axios.get('https://apiteste.mobieduca.me/api/escolas', config);
+        console.log(response.data)
+
+        const seedData: Data[] = [
+          { nome: 'Escola 1', diretor: 'Diretor 1', zona: 'Zona 1', turnos: 'Manhã', cidade: 'Cidade 1' },
+          { nome: 'Escola 2', diretor: 'Diretor 2', zona: 'Zona 2', turnos: 'Tarde', cidade: 'Cidade 2' },
+          { nome: 'Escola 3', diretor: 'Diretor 3', zona: 'Zona 3', turnos: 'Noite', cidade: 'Cidade 3' },
+        ];
+    
+        setRows(seedData);
+      } catch (err) {
+        console.log(err)
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -157,13 +184,9 @@ export default function SchoolsTable() {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
-  const visibleRows = React.useMemo(
-    () =>
-      [...rows]
-        .sort(getComparator(order, orderBy))
-        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
-    [order, orderBy, page, rowsPerPage],
-  );
+  const visibleRows = rows
+    .sort(getComparator(order, orderBy))
+    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
   return (
     <Box sx={{ width: '100%' }}>
