@@ -11,7 +11,7 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import axios from 'axios';
-import { BASE_URL } from './utils/Api';
+import { BASE_URL, CONFIG } from './utils/Api';
 
 export interface Data {
   nome: string;
@@ -139,13 +139,9 @@ export default function SchoolsTable() {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      let token = '45|YHAUKjrAHBw3LAQyO1rDj1vHQACYGWkDBfpmvg5cbed03fd4';
-      let config = {
-        headers: { Authorization: `Bearer ${token}` }
-      }
 
       try {
-        const response = await axios.get(`${BASE_URL}/escolas`, config);
+        const response = await axios.get(`${BASE_URL}/escolas`, CONFIG);
         // console.log(response.data)
 
         const seedData: Data[] = [
