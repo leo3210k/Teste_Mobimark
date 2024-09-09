@@ -104,8 +104,8 @@ export default function FormDialog() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button type="submit">Subscribe</Button>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button type="submit">Confirmar</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
