@@ -44,50 +44,53 @@ export default function FormDialog() {
             Aqui você adiciona novas escolas a serem colocadas
             no sistema.
           </DialogContentText>
-          <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="name"
-            name="name"
-            label="Nome"
-            type="name"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="director"
-            name="director"
-            label="Nome do diretor"
-            type="director"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="city"
-            name="city"
-            label="Cidade"
-            type="city"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="location"
-            name="location"
-            label="Localização"
-            type="location"
-            fullWidth
-            variant="standard"
-          />
+          <div className="flex gap-6">
+            <TextField
+              autoFocus
+              required
+              margin="dense"
+              id="name"
+              name="name"
+              label="Nome da escola"
+              type="name"
+              fullWidth
+              variant="outlined"
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="director"
+              name="director"
+              label="Nome do diretor"
+              type="director"
+              fullWidth
+              variant="outlined"
+            />
+          </div>
+          <div className="flex gap-6">
+            <TextField
+              autoFocus
+              required
+              margin="dense"
+              id="city"
+              name="city"
+              label="Cidade"
+              type="city"
+              fullWidth
+              variant="outlined"
+            />
+            <TextField
+              autoFocus
+              required
+              margin="dense"
+              id="location"
+              name="location"
+              label="Localização"
+              type="location"
+              fullWidth
+              variant="outlined"
+            />
+          </div>
           <TextField
             autoFocus
             required
@@ -97,7 +100,7 @@ export default function FormDialog() {
             label="Turnos"
             type="shifts"
             fullWidth
-            variant="standard"
+            variant="outlined"
           />
         </DialogContent>
         <DialogActions>
