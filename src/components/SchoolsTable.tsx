@@ -11,6 +11,7 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import axios from 'axios';
+import { BASE_URL } from './utils/Api';
 
 export interface Data {
   nome: string;
@@ -144,7 +145,7 @@ export default function SchoolsTable() {
       }
 
       try {
-        const response = await axios.get('https://apiteste.mobieduca.me/api/escolas', config);
+        const response = await axios.get(`${BASE_URL}/escolas`, config);
         // console.log(response.data)
 
         const seedData: Data[] = [
