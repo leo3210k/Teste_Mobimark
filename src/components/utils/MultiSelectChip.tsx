@@ -57,7 +57,7 @@ export default function MultipleSelectChip() {
 
   return (
     <div>
-      <FormControl margin="dense" sx={{ width: 300 }}>
+      <FormControl margin="dense" required sx={{ width: 300 }}>
         <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
