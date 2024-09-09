@@ -49,9 +49,53 @@ export default function FormDialog() {
             required
             margin="dense"
             id="name"
-            name="email"
-            label="Email Address"
-            type="email"
+            name="name"
+            label="Nome"
+            type="name"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="director"
+            name="director"
+            label="Nome do diretor"
+            type="director"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="city"
+            name="city"
+            label="Cidade"
+            type="city"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="location"
+            name="location"
+            label="Localização"
+            type="location"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="shifts"
+            name="shifts"
+            label="Turnos"
+            type="shifts"
             fullWidth
             variant="standard"
           />
