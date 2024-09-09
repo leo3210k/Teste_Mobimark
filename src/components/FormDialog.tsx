@@ -92,17 +92,6 @@ export default function FormDialog() {
               variant="outlined"
             />
           </div>
-          <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="shifts"
-            name="shifts"
-            label="Turnos"
-            type="shifts"
-            fullWidth
-            variant="outlined"
-          />
           <MultipleSelectChip />
         </DialogContent>
         <DialogActions>
