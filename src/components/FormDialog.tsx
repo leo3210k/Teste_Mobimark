@@ -38,11 +38,11 @@ export default function FormDialog() {
           },
         }}
       >
-        <DialogTitle className=''>Adicionar escola</DialogTitle>
+        <DialogTitle>Adicionar escola</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
+            Aqui você adiciona novas escolas a serem colocadas
+            no sistema.
           </DialogContentText>
           <TextField
             autoFocus
