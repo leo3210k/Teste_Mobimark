@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 
 import SchoolsTable from "./SchoolsTable";
+import FormDialog from "./FormDialog";
 
 function Schools() {
   return (
@@ -50,7 +51,7 @@ function Schools() {
               </Select>
             </FormControl>
           </div>
-          <Button variant="contained" className="!text-base !font-mulish !bg-[#6691ff] !normal-case !px-[2.2rem] !py-[0.6rem]">Nova Escola</Button>
+          <FormDialog />
         </div>
         <SchoolsTable />
       </div>
