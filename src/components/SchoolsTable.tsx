@@ -12,7 +12,7 @@ import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import axios from 'axios';
 
-interface Data {
+export interface Data {
   nome: string;
   diretor: string;
   zona: string;
@@ -145,7 +145,7 @@ export default function SchoolsTable() {
 
       try {
         const response = await axios.get('https://apiteste.mobieduca.me/api/escolas', config);
-        console.log(response.data)
+        // console.log(response.data)
 
         const seedData: Data[] = [
           { nome: 'Escola 1', diretor: 'Diretor 1', zona: 'Zona 1', turnos: 'Manhã', cidade: 'Cidade 1' },
