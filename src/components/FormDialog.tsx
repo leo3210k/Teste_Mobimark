@@ -8,10 +8,12 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import MultipleSelectChip from './utils/MultiSelectChip';
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { Data } from './SchoolsTable';
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
   const [location, setLocation] = React.useState('');
+  const [school, setSchool] = React.useState<Data>();
 
   const handleChange = (event: SelectChangeEvent) => {
     setLocation(event.target.value);
