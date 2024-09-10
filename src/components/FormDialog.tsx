@@ -16,7 +16,7 @@ export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
   const [location, setLocation] = React.useState('');
   const [school, setSchool] = React.useState<Data>();
-  const [cities, setCities] = React.useState();
+  const [cities, setCities] = React.useState([]);
   const [city, setCity] = React.useState('');
 
   React.useEffect(() => {
@@ -110,7 +110,11 @@ export default function FormDialog() {
                 autoWidth
                 label="Cidade"
               >
-                <MenuItem value="Urbana">Urbana</MenuItem>
+                {cities.map(city => {
+                  return (
+                    <MenuItem value={city.id}>{city.descricao}</MenuItem>
+                  )
+                })}
                 <MenuItem value="Rural">Rural</MenuItem>
               </Select>
             </FormControl>
