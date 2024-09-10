@@ -12,6 +12,7 @@ import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import axios from 'axios';
 import { BASE_URL, CONFIG } from './utils/Api';
+import { EnhancedTableHead } from './Table/TableHead';
 
 export interface TableData {
   nome: string;
@@ -35,6 +36,8 @@ interface Shift {
   turno_sigla: string;
 }
 
+export type Order = 'asc' | 'desc';
+
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -44,8 +47,6 @@ function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   }
   return 0;
 }
-
-type Order = 'asc' | 'desc';
 
 function getComparator<Key extends keyof any>(
   order: Order,
@@ -57,91 +58,6 @@ function getComparator<Key extends keyof any>(
   return order === 'desc'
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
-}
-
-interface HeadCell {
-  disablePadding: boolean;
-  id: keyof TableData;
-  label: string;
-  numeric: boolean;
-}
-
-const headCells: readonly HeadCell[] = [
-  {
-    id: 'nome',
-    numeric: false,
-    disablePadding: false,
-    label: 'Nome',
-  },
-  {
-    id: 'diretor',
-    numeric: true,
-    disablePadding: false,
-    label: 'Diretor',
-  },
-  {
-    id: 'localizacao',
-    numeric: true,
-    disablePadding: false,
-    label: 'Localizacao',
-  },
-  {
-    id: 'turnos',
-    numeric: true,
-    disablePadding: false,
-    label: 'Turnos',
-  },
-  {
-    id: 'cidade',
-    numeric: true,
-    disablePadding: false,
-    label: 'Cidade',
-  },
-];
-
-interface EnhancedTableProps {
-  onRequestSort: (event: React.MouseEvent<unknown>, property: keyof TableData) => void;
-  order: Order;
-  orderBy: string;
-  rowCount: number;
-}
-
-function EnhancedTableHead(props: EnhancedTableProps) {
-  const { order, orderBy, onRequestSort } =
-    props;
-  const createSortHandler =
-    (property: keyof TableData) => (event: React.MouseEvent<unknown>) => {
-      onRequestSort(event, property);
-    };
-
-  return (
-    <TableHead>
-      <TableRow>
-        {headCells.map((headCell) => (
-          <TableCell
-            key={headCell.id}
-            align='center'
-            padding={headCell.disablePadding ? 'none' : 'normal'}
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
-              className="font-bold"
-            >
-              {headCell.label}
-              {orderBy === headCell.id ? (
-                <Box component="span" sx={visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </Box>
-              ) : null}
-            </TableSortLabel>
-          </TableCell>
-        ))}
-      </TableRow>
-    </TableHead>
-  );
 }
 
 export default function SchoolsTable() {
