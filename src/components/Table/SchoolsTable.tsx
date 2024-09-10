@@ -113,7 +113,7 @@ export default function SchoolsTable() {
   const formatShifts = (shifts: Shift[]): string => {
     let formattedShifts: string[] = [];
 
-    shifts.map(shift => {
+    shifts.forEach(shift => {
       formattedShifts.push(shift.turno_sigla);
     })
 
