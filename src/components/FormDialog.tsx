@@ -31,11 +31,10 @@ export default function FormDialog() {
   const [city, setCity] = React.useState('');
 
   React.useEffect(() => {
-    // Função para fazer a requisição GET
     const fetchData = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/cidades`, CONFIG);
-        setCities(response.data); // Armazena os dados recebidos
+        setCities(response.data);
       } catch (err) {
         console.log(err);
       }
