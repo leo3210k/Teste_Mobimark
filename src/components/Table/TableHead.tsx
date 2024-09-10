@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Order, TableData } from '../SchoolsTable';
+import { Order, TableData } from './SchoolsTable';
 import { Box, TableCell, TableHead, TableRow, TableSortLabel } from '@mui/material';
 import { visuallyHidden } from '@mui/utils';
 

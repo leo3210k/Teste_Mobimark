@@ -8,7 +8,7 @@ import {
   TextField,
 } from "@mui/material";
 
-import SchoolsTable from "./SchoolsTable";
+import SchoolsTable from "./Table/SchoolsTable";
 import FormDialog from "./FormDialog";
 
 function Schools() {

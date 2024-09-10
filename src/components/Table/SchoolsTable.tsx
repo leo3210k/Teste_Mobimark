@@ -8,8 +8,8 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
-import { BASE_URL, CONFIG } from './utils/Api';
-import { EnhancedTableHead } from './Table/TableHead';
+import { BASE_URL, CONFIG } from '../utils/Api';
+import { EnhancedTableHead } from './TableHead';
 
 export interface TableData {
   nome: string;
