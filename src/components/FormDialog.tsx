@@ -64,7 +64,15 @@ export default function FormDialog() {
     const formData = new FormData(event.currentTarget);
     const formJson = Object.fromEntries((formData as any).entries());
 
-    axios.post(`${BASE_URL}/escolas`, formJson, CONFIG)
+    const data = {
+      nome: formJson.nome,
+      cidade_id: parseInt(formJson.cidade_id),
+      diretor: formJson.diretor,
+      localizacao: formJson.localizacao === "Urbana" ? 1 : 2,
+      turnos: formJson.turnos.split(",")
+    }
+
+    axios.post(`${BASE_URL}/escolas`, data, CONFIG)
       .then(response => console.log(response));
 
     handleClose();
