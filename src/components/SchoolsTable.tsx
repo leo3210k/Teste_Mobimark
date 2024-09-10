@@ -13,12 +13,24 @@ import { visuallyHidden } from '@mui/utils';
 import axios from 'axios';
 import { BASE_URL, CONFIG } from './utils/Api';
 
-export interface Data {
+export interface TableData {
   nome: string;
   cidade: string;
   localizacao: string;
   turnos: string;
+  diretor: string;  
+}
+
+export interface GetSchool {
+  nome: string;
+  cidade_id: number;
+  localizacao: number;
+  turnos: Shift[];
   diretor: string;
+}
+
+interface Shift {
+  turno: string;
 }
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -47,7 +59,7 @@ function getComparator<Key extends keyof any>(
 
 interface HeadCell {
   disablePadding: boolean;
-  id: keyof Data;
+  id: keyof TableData;
   label: string;
   numeric: boolean;
 }
@@ -86,7 +98,7 @@ const headCells: readonly HeadCell[] = [
 ];
 
 interface EnhancedTableProps {
-  onRequestSort: (event: React.MouseEvent<unknown>, property: keyof Data) => void;
+  onRequestSort: (event: React.MouseEvent<unknown>, property: keyof TableData) => void;
   order: Order;
   orderBy: string;
   rowCount: number;
@@ -96,7 +108,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   const { order, orderBy, onRequestSort } =
     props;
   const createSortHandler =
-    (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
+    (property: keyof TableData) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
 
@@ -131,9 +143,9 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 }
 
 export default function SchoolsTable() {
-  const [rows, setRows] = React.useState<Data[]>([]);
+  const [rows, setRows] = React.useState<TableData[]>([]);
   const [order, setOrder] = React.useState<Order>('asc');
-  const [orderBy, setOrderBy] = React.useState<keyof Data>('nome');
+  const [orderBy, setOrderBy] = React.useState<keyof TableData>('nome');
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -142,15 +154,29 @@ export default function SchoolsTable() {
 
       try {
         const response = await axios.get(`${BASE_URL}/escolas`, CONFIG);
-        // console.log(response.data)
+        const schools: GetSchool[] = response.data.data
+        const formattedSchools: TableData[] = []
 
-        const seedData: Data[] = [
-          { nome: 'Escola 1', diretor: 'Diretor 1', localizacao: 'Zona 1', turnos: 'Manhã', cidade: 'Cidade 1' },
-          { nome: 'Escola 2', diretor: 'Diretor 2', localizacao: 'Zona 2', turnos: 'Tarde', cidade: 'Cidade 2' },
-          { nome: 'Escola 3', diretor: 'Diretor 3', localizacao: 'Zona 3', turnos: 'Noite', cidade: 'Cidade 3' },
-        ];
+        schools.forEach(school => {
+          formattedSchools.push({
+            nome: school.nome,
+            cidade: String(school.cidade_id),
+            localizacao: String(school.localizacao),
+            turnos: school.turnos.join(),
+            diretor: school.diretor,
+          })
+          console.log({
+              nome: school.nome,
+              cidade: String(school.cidade_id),
+              localizacao: String(school.localizacao),
+              turnos: formatShifts(school.turnos),
+              diretor: school.diretor,
+            }
+          )
+        });
+
+        setRows(formattedSchools);
     
-        setRows(seedData);
       } catch (err) {
         console.log(err)
       }
@@ -161,7 +187,7 @@ export default function SchoolsTable() {
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
-    property: keyof Data,
+    property: keyof TableData,
   ) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -176,6 +202,10 @@ export default function SchoolsTable() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+
+  const formatShifts = (shifts:) => {
+
+  }
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
