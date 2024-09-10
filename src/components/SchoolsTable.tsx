@@ -15,10 +15,10 @@ import { BASE_URL, CONFIG } from './utils/Api';
 
 export interface Data {
   nome: string;
-  diretor: string;
-  zona: string;
-  turnos: string;
   cidade: string;
+  localizacao: string;
+  turnos: string;
+  diretor: string;
 }
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -66,10 +66,10 @@ const headCells: readonly HeadCell[] = [
     label: 'Diretor',
   },
   {
-    id: 'zona',
+    id: 'localizacao',
     numeric: true,
     disablePadding: false,
-    label: 'Zona',
+    label: 'Localizacao',
   },
   {
     id: 'turnos',
@@ -145,9 +145,9 @@ export default function SchoolsTable() {
         // console.log(response.data)
 
         const seedData: Data[] = [
-          { nome: 'Escola 1', diretor: 'Diretor 1', zona: 'Zona 1', turnos: 'Manhã', cidade: 'Cidade 1' },
-          { nome: 'Escola 2', diretor: 'Diretor 2', zona: 'Zona 2', turnos: 'Tarde', cidade: 'Cidade 2' },
-          { nome: 'Escola 3', diretor: 'Diretor 3', zona: 'Zona 3', turnos: 'Noite', cidade: 'Cidade 3' },
+          { nome: 'Escola 1', diretor: 'Diretor 1', localizacao: 'Zona 1', turnos: 'Manhã', cidade: 'Cidade 1' },
+          { nome: 'Escola 2', diretor: 'Diretor 2', localizacao: 'Zona 2', turnos: 'Tarde', cidade: 'Cidade 2' },
+          { nome: 'Escola 3', diretor: 'Diretor 3', localizacao: 'Zona 3', turnos: 'Noite', cidade: 'Cidade 3' },
         ];
     
         setRows(seedData);
@@ -220,7 +220,7 @@ export default function SchoolsTable() {
                       {row.nome}
                     </TableCell>
                     <TableCell align="center">{row.diretor}</TableCell>
-                    <TableCell align="center">{row.zona}</TableCell>
+                    <TableCell align="center">{row.localizacao}</TableCell>
                     <TableCell align="center">{row.turnos}</TableCell>
                     <TableCell align="center">{row.cidade}</TableCell>
                   </TableRow>
