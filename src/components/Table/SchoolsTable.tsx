@@ -82,11 +82,16 @@ export default function SchoolsTable() {
         const response = await axios.get(`${BASE_URL}/escolas`, CONFIG);
         const schools: GetSchool[] = response.data.data;
 
+        const citiesResponse = await axios.get(`${BASE_URL}/cidades`, CONFIG);
+        const cities: City[] = citiesResponse.data;
+
         const formattedSchools: TableData[] = schools.map(school => {
+          const city = cities.find(element => element.id === school.cidade_id);
+          const cityName = city ? city.descricao : 'Desconhecida';
 
           return {
             nome: school.nome,
-            cidade: school.cidade_id,
+            cidade: cityName,
             localizacao: String(school.localizacao),
             turnos: formatShifts(school.turnos),
             diretor: school.diretor,
