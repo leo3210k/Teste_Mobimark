@@ -17,6 +17,7 @@ export default function FormDialog() {
   const [location, setLocation] = React.useState('');
   const [school, setSchool] = React.useState<Data>();
   const [cities, setCities] = React.useState();
+  const [city, setCity] = React.useState('');
 
   React.useEffect(() => {
     // Função para fazer a requisição GET
@@ -32,8 +33,12 @@ export default function FormDialog() {
     fetchData();
   }, []);
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChangeLocation = (event: SelectChangeEvent) => {
     setLocation(event.target.value);
+  };
+
+  const handleChangeCity = (event: SelectChangeEvent) => {
+    setCity(event.target.value);
   };
 
   const handleClickOpen = () => {
@@ -93,27 +98,31 @@ export default function FormDialog() {
             />
           </div>
           <div className="flex gap-6">
-            <TextField
-              autoFocus
-              required
-              margin="dense"
-              id="city"
-              name="city"
-              label="Cidade"
-              type="city"
-              fullWidth
-              variant="outlined"
-            />
-            <FormControl className="w-full" margin="dense">
+            <FormControl required className="w-full" margin="dense">
+              <InputLabel id="city-autowidth-label">Cidade</InputLabel>
+              <Select
+                labelId="city-autowidth-label"
+                id="city"
+                name="city"
+                type="city"
+                value={location}
+                onChange={handleChangeCity}
+                autoWidth
+                label="Cidade"
+              >
+                <MenuItem value="Urbana">Urbana</MenuItem>
+                <MenuItem value="Rural">Rural</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl required className="w-full" margin="dense">
               <InputLabel id="location-autowidth-label">Localização</InputLabel>
               <Select
-                required
                 labelId="location-autowidth-label"
                 id="location-autowidth"
                 name="location"
                 type="location"
                 value={location}
-                onChange={handleChange}
+                onChange={handleChangeLocation}
                 autoWidth
                 label="Localização"
               >
