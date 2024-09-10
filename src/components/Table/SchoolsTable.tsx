@@ -92,7 +92,7 @@ export default function SchoolsTable() {
           return {
             nome: school.nome,
             cidade: cityName,
-            localizacao: String(school.localizacao),
+            localizacao: school.localizacao === 1 ? 'Urbana' : 'Rural',
             turnos: formatShifts(school.turnos),
             diretor: school.diretor,
           };
