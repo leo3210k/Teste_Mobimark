@@ -26,7 +26,6 @@ interface City {
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
   const [location, setLocation] = React.useState('');
-  const [school, setSchool] = React.useState<Data>();
   const [cities, setCities] = React.useState<City[]>([]);
   const [city, setCity] = React.useState('');
 
