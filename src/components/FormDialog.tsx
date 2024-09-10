@@ -9,11 +9,28 @@ import DialogTitle from '@mui/material/DialogTitle';
 import MultipleSelectChip from './utils/MultiSelectChip';
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { Data } from './SchoolsTable';
+import axios from 'axios';
+import { BASE_URL, CONFIG } from './utils/Api';
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
   const [location, setLocation] = React.useState('');
   const [school, setSchool] = React.useState<Data>();
+  const [cities, setCities] = React.useState();
+
+  React.useEffect(() => {
+    // Função para fazer a requisição GET
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/cidades`, CONFIG);
+        setCities(response.data); // Armazena os dados recebidos
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleChange = (event: SelectChangeEvent) => {
     setLocation(event.target.value);
