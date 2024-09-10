@@ -89,20 +89,20 @@ export default function FormDialog() {
               autoFocus
               required
               margin="dense"
-              id="name"
-              name="name"
+              id="nome"
+              name="nome"
               label="Nome da escola"
-              type="name"
+              type="nome"
               fullWidth
               variant="outlined"
             />
             <TextField
               autoFocus
               margin="dense"
-              id="director"
-              name="director"
+              id="diretor"
+              name="diretor"
               label="Nome do diretor"
-              type="director"
+              type="diretor"
               fullWidth
               variant="outlined"
             />
@@ -112,9 +112,9 @@ export default function FormDialog() {
               <InputLabel id="city-autowidth-label">Cidade</InputLabel>
               <Select
                 labelId="city-autowidth-label"
-                id="city"
-                name="city"
-                type="city"
+                id="cidade_id"
+                name="cidade_id"
+                type="cidade_id"
                 value={city}
                 onChange={handleChangeCity}
                 autoWidth
@@ -131,9 +131,9 @@ export default function FormDialog() {
               <InputLabel id="location-autowidth-label">Localização</InputLabel>
               <Select
                 labelId="location-autowidth-label"
-                id="location-autowidth"
-                name="location"
-                type="location"
+                id="localizacao"
+                name="localizacao"
+                type="localizacao"
                 value={location}
                 onChange={handleChangeLocation}
                 autoWidth
