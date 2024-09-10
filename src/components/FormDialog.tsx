@@ -12,11 +12,22 @@ import { Data } from './SchoolsTable';
 import axios from 'axios';
 import { BASE_URL, CONFIG } from './utils/Api';
 
+interface City {
+  id: number;
+  estado_id: number;
+  descricao: string;
+  estado: {
+    id: number;
+    descricao: string;
+    sigla: string;
+  }
+}
+
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
   const [location, setLocation] = React.useState('');
   const [school, setSchool] = React.useState<Data>();
-  const [cities, setCities] = React.useState([]);
+  const [cities, setCities] = React.useState<City[]>([]);
   const [city, setCity] = React.useState('');
 
   React.useEffect(() => {
