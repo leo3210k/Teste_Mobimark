@@ -59,6 +59,15 @@ export default function FormDialog() {
     setOpen(false);
   };
 
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const formJson = Object.fromEntries((formData as any).entries());
+    console.log(formJson);
+    
+    handleClose();
+  };
+
   return (
     <React.Fragment>
       <Button variant="contained" onClick={handleClickOpen} className="!text-base !font-mulish !bg-[#6691ff] !normal-case !px-[2.2rem] !py-[0.6rem]">
@@ -69,13 +78,7 @@ export default function FormDialog() {
         onClose={handleClose}
         PaperProps={{
           component: 'form',
-          onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-            event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries((formData as any).entries());
-            console.log(formJson);
-            handleClose();
-          },
+          onSubmit
         }}
       >
         <DialogTitle>Adicionar escola</DialogTitle>
