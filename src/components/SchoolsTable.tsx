@@ -164,17 +164,9 @@ export default function SchoolsTable() {
             nome: school.nome,
             cidade: String(school.cidade_id),
             localizacao: String(school.localizacao),
-            turnos: school.turnos.join(),
+            turnos: formatShifts(school.turnos),
             diretor: school.diretor,
           })
-          console.log({
-              nome: school.nome,
-              cidade: String(school.cidade_id),
-              localizacao: String(school.localizacao),
-              turnos: formatShifts(school.turnos),
-              diretor: school.diretor,
-            }
-          )
         });
 
         setRows(formattedSchools);
@@ -205,8 +197,14 @@ export default function SchoolsTable() {
     setPage(0);
   };
 
-  const formatShifts = (shifts: Shift[]) => {
+  const formatShifts = (shifts: Shift[]): string => {
+    let formattedShifts: string[] = [];
 
+    shifts.map(shift => {
+      formattedShifts.push(shift.turno_sigla);
+    })
+
+    return formattedShifts.join();
   }
 
   // Avoid a layout jump when reaching the last page with empty rows.
