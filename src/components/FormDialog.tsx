@@ -116,17 +116,16 @@ export default function FormDialog() {
                 id="city"
                 name="city"
                 type="city"
-                value={location}
+                value={city}
                 onChange={handleChangeCity}
                 autoWidth
                 label="Cidade"
               >
                 {cities.map(city => {
                   return (
-                    <MenuItem value={city.id}>{city.descricao}</MenuItem>
+                    <MenuItem value={city.id} key={city.id}>{city.descricao}</MenuItem>
                   )
                 })}
-                <MenuItem value="Rural">Rural</MenuItem>
               </Select>
             </FormControl>
             <FormControl required className="w-full" margin="dense">
