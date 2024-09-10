@@ -31,6 +31,8 @@ export interface GetSchool {
 
 interface Shift {
   turno: string;
+  escola_id: number;
+  turno_sigla: string;
 }
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -203,7 +205,7 @@ export default function SchoolsTable() {
     setPage(0);
   };
 
-  const formatShifts = (shifts:) => {
+  const formatShifts = (shifts: Shift[]) => {
 
   }
 
