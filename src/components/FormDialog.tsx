@@ -8,7 +8,6 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import MultipleSelectChip from './utils/MultiSelectChip';
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
-import { Data } from './SchoolsTable';
 import axios from 'axios';
 import { BASE_URL, CONFIG } from './utils/Api';
 
