@@ -63,8 +63,10 @@ export default function FormDialog() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formJson = Object.fromEntries((formData as any).entries());
-    console.log(formJson);
-    
+
+    axios.post(`${BASE_URL}/escolas`, formJson, CONFIG)
+      .then(response => console.log(response));
+
     handleClose();
   };
 
