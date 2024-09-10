@@ -19,11 +19,11 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Manhã',
-  'Tarde',
-  'Noite',
-  'Integral'
+const options = [
+  { name: 'Manhã', value: 'M' },
+  { name: 'Tarde', value: 'T' },
+  { name: 'Noite', value: 'N' },
+  { name: 'Integral', value: 'I' }
 ];
 
 function getStyles(name: string, personName: readonly string[], theme: Theme) {
@@ -52,16 +52,16 @@ export default function MultipleSelectChip() {
   return (
     <div>
       <FormControl margin="dense" required className="w-full">
-        <InputLabel id="shifts-label">Turnos</InputLabel>
+        <InputLabel id="turnos-label">Turnos</InputLabel>
         <Select
-          name="shifts"
-          labelId="shifts-label"
-          id="shifts"
+          name="turnos"
+          labelId="turnos-label"
+          id="turnos"
           multiple
-          type="shifts"
+          type="turnos"
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput id="shifts-multiple" label="shifts" />}
+          input={<OutlinedInput id="turnos-multiple" label="turnos" />}
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (
@@ -71,13 +71,13 @@ export default function MultipleSelectChip() {
           )}
           MenuProps={MenuProps}
         >
-          {names.map((name) => (
+          {options.map((option) => (
             <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
+              key={option.value}
+              value={option.value}
+              style={getStyles(option.name, personName, theme)}
             >
-              {name}
+              {option.name}
             </MenuItem>
           ))}
         </Select>
