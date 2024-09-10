@@ -19,7 +19,7 @@ export interface TableData {
   diretor: string;  
 }
 
-export interface GetSchool {
+interface GetSchool {
   nome: string;
   cidade_id: number;
   localizacao: number;
