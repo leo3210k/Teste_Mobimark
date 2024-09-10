@@ -33,6 +33,17 @@ interface Shift {
   turno_sigla: string;
 }
 
+interface City {
+  id: number;
+  estado_id: number;
+  descricao: string;
+  estado: {
+    id: number;
+    descricao: string;
+    sigla: string;
+  }
+}
+
 export type Order = 'asc' | 'desc';
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -69,17 +80,17 @@ export default function SchoolsTable() {
 
       try {
         const response = await axios.get(`${BASE_URL}/escolas`, CONFIG);
-        const schools: GetSchool[] = response.data.data
-        const formattedSchools: TableData[] = []
+        const schools: GetSchool[] = response.data.data;
 
-        schools.forEach(school => {
-          formattedSchools.push({
+        const formattedSchools: TableData[] = schools.map(school => {
+
+          return {
             nome: school.nome,
-            cidade: String(school.cidade_id),
+            cidade: school.cidade_id,
             localizacao: String(school.localizacao),
             turnos: formatShifts(school.turnos),
             diretor: school.diretor,
-          })
+          };
         });
 
         setRows(formattedSchools);
@@ -119,6 +130,7 @@ export default function SchoolsTable() {
 
     return formattedShifts.join();
   }
+
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
