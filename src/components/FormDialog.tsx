@@ -129,7 +129,7 @@ export default function FormDialog({ setUpdateTable }: { setUpdateTable: React.D
                 name="cidade_id"
                 type="cidade_id"
                 value={city}
-                onChange={handleChangeCity}
+                onChange={e => setCity(e.target.value)}
                 autoWidth
                 label="Cidade"
               >
@@ -148,7 +148,7 @@ export default function FormDialog({ setUpdateTable }: { setUpdateTable: React.D
                 name="localizacao"
                 type="localizacao"
                 value={location}
-                onChange={handleChangeLocation}
+                onChange={e => setLocation(e.target.value)}
                 autoWidth
                 label="Localização"
               >
