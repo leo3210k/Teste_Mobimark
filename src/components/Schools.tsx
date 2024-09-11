@@ -64,12 +64,11 @@ function Schools() {
                 },
               }}
             />
-            <FormControl fullWidth>
+            <FormControl fullWidth size="small">
               <InputLabel id="city-label">Cidade</InputLabel>
               <Select
                 labelId="city-label"
                 id="city"
-                size="small"
                 value={filterCity}
                 onChange={e => setFilterCity(e.target.value)}
                 label="Cidade"
