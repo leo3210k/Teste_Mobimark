@@ -41,14 +41,6 @@ export default function FormDialog({ setUpdateTable }: { setUpdateTable: React.D
     fetchData();
   }, []);
 
-  const handleChangeLocation = (event: SelectChangeEvent) => {
-    setLocation(event.target.value);
-  };
-
-  const handleChangeCity = (event: SelectChangeEvent) => {
-    setCity(event.target.value);
-  };
-
   const handleClickOpen = () => {
     setOpen(true);
   };
