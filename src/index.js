@@ -10,23 +10,7 @@ import './index.css';
 import App from './main/App';
 import Login from './components/Login'
 import Main from './components/Main'
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        index: true,
-        element: <Main />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-    ]
-  },
-]);
+import router from './config/router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
