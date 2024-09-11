@@ -5,11 +5,12 @@ import Main from "../components/Main";
 import Login from "../components/Login";
 
 interface ProtectedRouteProps {
-  isAuthenticated: boolean;
   children: JSX.Element;
 }
 
-const ProtectedRoute = ({ isAuthenticated, children }: ProtectedRouteProps) => {
+const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+  const isAuthenticated = !!localStorage.getItem('userKey');
+
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
@@ -17,7 +18,6 @@ const ProtectedRoute = ({ isAuthenticated, children }: ProtectedRouteProps) => {
   return children;
 };
 
-const isAuthenticated = !!localStorage.getItem('userKey');
 
 const router = createBrowserRouter([
   {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <ProtectedRoute isAuthenticated={isAuthenticated}>
+          <ProtectedRoute>
             <Main />
           </ProtectedRoute>
         )
