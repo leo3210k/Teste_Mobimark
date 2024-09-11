@@ -11,7 +11,7 @@ import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@m
 import axios from 'axios';
 import { BASE_URL, CONFIG } from './utils/Api';
 
-interface City {
+export interface City {
   id: number;
   estado_id: number;
   descricao: string;
