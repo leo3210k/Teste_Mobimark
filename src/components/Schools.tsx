@@ -20,7 +20,6 @@ function Schools() {
   const [searchText, setSearchText] = useState('');
   const [filterCity, setFilterCity] = useState('');
   const [cities, setCities] = React.useState<City[]>([]);
-  const [city, setCity] = React.useState('');
 
   useEffect(() => {
     const fetchData = async () => {
