@@ -1,11 +1,36 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
+import { BASE_URL } from "./utils/Api";
+import axios from "axios";
 
 function Login() {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = React.useState("leocoelho.pi@gmail.com");
+  const [password, setPassword] = React.useState("53nhaD0L30");
+
+  const navigate = useNavigate();
+
+  const onSubmit = async () => {
+    const data = { email, senha: password};
+    
+    try {
+      await axios.post(`${BASE_URL}/login/run`, data)
+        .then(res => {
+          localStorage.setItem('userKey', JSON.stringify(res.data));
+        })
+        .then(_ => {
+          navigate("/", { state: { successfulLogin: true } });
+        })
+        .catch(err => {
+          console.log(err);
+        })
+
+    } catch (error) {
+      console.error('Erro ao adicionar escola:', error);
+    }
+  }
 
   return (
     <div className="flex">
@@ -23,12 +48,13 @@ function Login() {
                 Email
               </label>
               <TextField
-                id="outlined-basic"
+                id="outlined"
                 variant="outlined"
                 size="small"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value)
+                  console.log(email)
                 }}
                 className="w-[25rem]"
               />
@@ -56,6 +82,7 @@ function Login() {
               <Button
                 variant="contained"
                 className="!capitalize w-40 h-14 !bg-black/80 !font-medium"
+                onClick={onSubmit}
               >
                 Entrar
               </Button>
