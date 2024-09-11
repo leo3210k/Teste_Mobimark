@@ -20,8 +20,6 @@ function Login() {
       await axios.post(`${BASE_URL}/login/run`, data)
         .then(res => {
           localStorage.setItem('userKey', JSON.stringify(res.data));
-        })
-        .then(_ => {
           navigate("/", { state: { successfulLogin: true } });
         })
         .catch(err => {
