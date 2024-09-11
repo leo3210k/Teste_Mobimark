@@ -68,8 +68,7 @@ function getComparator<Key extends keyof any>(
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-export default function SchoolsTable({ updateTable }: { updateTable: boolean }) {
-  const [rows, setRows] = React.useState<TableData[]>([]);
+export default function SchoolsTable({ rows, setRows, filteredData, updateTable }: { rows: TableData[], setRows: React.Dispatch<React.SetStateAction<TableData[]>>, filteredData: TableData[],updateTable: boolean }) {
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof TableData>('nome');
   const [page, setPage] = React.useState(0);
@@ -136,12 +135,11 @@ export default function SchoolsTable({ updateTable }: { updateTable: boolean }) 
     return formattedShifts.join();
   }
 
-
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
-  const visibleRows = rows
+  const visibleRows = filteredData
     .sort(getComparator(order, orderBy))
     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 

@@ -9,13 +9,16 @@ import {
   TextField,
 } from "@mui/material";
 
-import SchoolsTable from "./Table/SchoolsTable";
+import SchoolsTable, { TableData } from "./Table/SchoolsTable";
 import FormDialog, { City } from "./FormDialog";
 import { BASE_URL, CONFIG } from "./utils/Api";
 import axios from "axios";
 
 function Schools() {
+  const [rows, setRows] = React.useState<TableData[]>([]);
   const [updateTable, setUpdateTable] = useState(false);
+  const [searchText, setSearchText] = useState('');
+  const [filterCity, setFilterCity] = useState('');
   const [cities, setCities] = React.useState<City[]>([]);
   const [city, setCity] = React.useState('');
 
@@ -30,11 +33,18 @@ function Schools() {
     };
 
     fetchData();
-  });
+  }, []);
 
   const handleChangeCity = (event: SelectChangeEvent) => {
-    setCity(event.target.value);
+    setFilterCity(event.target.value);
   };
+
+  const filteredData = rows.filter(item => {
+    return (
+      (item.nome.toLowerCase().includes(searchText.toLowerCase()) || item.cidade.toLowerCase().includes(searchText.toLowerCase())) &&
+      (filterCity ? item.cidade === filterCity : true)
+    );
+  });
 
   return (
     <div className="flex justify-center items-center bg-aqua-haze">
@@ -47,6 +57,8 @@ function Schools() {
               label="Pesquise pelo nome"
               size="small"
               variant="outlined"
+              value={searchText}
+              onChange={e => setSearchText(e.target.value)}
               slotProps={{
                 input: {
                   startAdornment: (
@@ -64,14 +76,15 @@ function Schools() {
                 labelId="city-label"
                 id="city"
                 size="small"
-                value={city}
-                onChange={handleChangeCity}
+                value={filterCity}
+                onChange={e => setFilterCity(e.target.value)}
                 label="Cidade"
                 className="w-[10rem] !bg-white"
               >
+                <MenuItem value='' key="empty">Todos</MenuItem>
                 {cities.map(city => {
                   return (
-                    <MenuItem value={city.id} key={city.id}>{city.descricao}</MenuItem>
+                    <MenuItem value={city.descricao} key={city.id}>{city.descricao}</MenuItem>
                   )
                 })}
               </Select>
@@ -79,7 +92,7 @@ function Schools() {
           </div>
           <FormDialog setUpdateTable={setUpdateTable} />
         </div>
-        <SchoolsTable updateTable={updateTable} />
+        <SchoolsTable rows={rows} setRows={setRows} filteredData={filteredData} updateTable={updateTable} />
       </div>
     </div>
   );
