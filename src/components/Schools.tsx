@@ -53,7 +53,7 @@ function Schools() {
               size="small"
               value={searchText}
               onChange={e => setSearchText(e.target.value)}
-              className="w-[20rem] !bg-white"
+              className="w-[25rem] !bg-white"
               slotProps={{
                 input: {
                   startAdornment: (
