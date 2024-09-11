@@ -1,18 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FormControl,
   InputAdornment,
   InputLabel,
   MenuItem,
   Select,
+  SelectChangeEvent,
   TextField,
 } from "@mui/material";
 
 import SchoolsTable from "./Table/SchoolsTable";
-import FormDialog from "./FormDialog";
+import FormDialog, { City } from "./FormDialog";
+import { BASE_URL, CONFIG } from "./utils/Api";
+import axios from "axios";
 
 function Schools() {
   const [updateTable, setUpdateTable] = useState(false);
+  const [cities, setCities] = React.useState<City[]>([]);
+  const [city, setCity] = React.useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/cidades`, CONFIG);
+        setCities(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  });
+
+  const handleChangeCity = (event: SelectChangeEvent) => {
+    setCity(event.target.value);
+  };
 
   return (
     <div className="flex justify-center items-center bg-aqua-haze">
@@ -37,18 +59,21 @@ function Schools() {
               className="w-[20rem] !bg-white"
             />
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Age</InputLabel>
+              <InputLabel id="city-label">Cidade</InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                labelId="city-label"
+                id="city"
                 size="small"
-                value="age"
-                label="Age"
+                value={city}
+                onChange={handleChangeCity}
+                label="Cidade"
                 className="w-[10rem] !bg-white"
               >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                {cities.map(city => {
+                  return (
+                    <MenuItem value={city.id} key={city.id}>{city.descricao}</MenuItem>
+                  )
+                })}
               </Select>
             </FormControl>
           </div>
