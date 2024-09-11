@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {
+  Alert,
   FormControl,
   InputAdornment,
   InputLabel,
   MenuItem,
   Select,
+  Snackbar,
   TextField,
 } from "@mui/material";
 
@@ -12,6 +14,7 @@ import SchoolsTable, { TableData } from "./Table/SchoolsTable";
 import FormDialog, { City } from "./FormDialog";
 import { BASE_URL, CONFIG } from "./utils/Api";
 import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Schools() {
   const [rows, setRows] = React.useState<TableData[]>([]);
@@ -19,6 +22,10 @@ function Schools() {
   const [searchText, setSearchText] = useState('');
   const [filterCity, setFilterCity] = useState('');
   const [cities, setCities] = React.useState<City[]>([]);
+  const [openAlert, setOpenAlert] = useState(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +39,17 @@ function Schools() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if(location.state?.successfulLogin) {
+      setOpenAlert(true);
+      navigate(location.pathname, { replace: true, state: null });
+    }
+  }, [])
+
+  const handleClose = () => {
+    setOpenAlert(false);
+  };
 
   const filteredData = rows.filter(item => {
     return (
@@ -87,6 +105,16 @@ function Schools() {
         </div>
         <SchoolsTable rows={rows} setRows={setRows} filteredData={filteredData} updateTable={updateTable} />
       </div>
+      <Snackbar
+        open={openAlert}
+        autoHideDuration={2000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert severity="success" sx={{ width: '100%' }}>
+          Login bem-sucedido!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
