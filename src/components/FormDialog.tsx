@@ -49,7 +49,7 @@ export default function FormDialog({ setUpdateTable }: { setUpdateTable: React.D
     setOpen(false);
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formJson = Object.fromEntries((formData as any).entries());
@@ -62,10 +62,14 @@ export default function FormDialog({ setUpdateTable }: { setUpdateTable: React.D
       turnos: formJson.turnos.split(",")
     }
 
-    axios.post(`${BASE_URL}/escolas`, data, CONFIG)
-      .then(response => console.log(response));
-
-    setUpdateTable(a => !a);
+    try {
+      await axios.post(`${BASE_URL}/escolas`, data, CONFIG)
+        .then(_ => setUpdateTable(prevValue => !prevValue));
+  
+      handleClose();
+    } catch (error) {
+      console.error('Erro ao adicionar escola:', error);
+    }
 
     handleClose();
   };
