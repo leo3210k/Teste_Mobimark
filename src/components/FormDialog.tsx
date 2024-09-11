@@ -22,7 +22,7 @@ interface City {
   }
 }
 
-export default function FormDialog() {
+export default function FormDialog({ setUpdateTable }: { setUpdateTable: React.Dispatch<React.SetStateAction<boolean>>}) {
   const [open, setOpen] = React.useState(false);
   const [location, setLocation] = React.useState('');
   const [cities, setCities] = React.useState<City[]>([]);
@@ -72,6 +72,8 @@ export default function FormDialog() {
 
     axios.post(`${BASE_URL}/escolas`, data, CONFIG)
       .then(response => console.log(response));
+
+    setUpdateTable(a => !a);
 
     handleClose();
   };

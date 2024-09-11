@@ -68,7 +68,7 @@ function getComparator<Key extends keyof any>(
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-export default function SchoolsTable() {
+export default function SchoolsTable({ updateTable }: { updateTable: boolean }) {
   const [rows, setRows] = React.useState<TableData[]>([]);
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof TableData>('nome');
@@ -106,7 +106,7 @@ export default function SchoolsTable() {
     };
 
     fetchData();
-  }, []);
+  }, [updateTable]);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FormControl,
   InputAdornment,
@@ -12,6 +12,8 @@ import SchoolsTable from "./Table/SchoolsTable";
 import FormDialog from "./FormDialog";
 
 function Schools() {
+  const [updateTable, setUpdateTable] = useState(false);
+
   return (
     <div className="flex justify-center items-center bg-aqua-haze">
       <div className="flex flex-col gap-4">
@@ -50,9 +52,9 @@ function Schools() {
               </Select>
             </FormControl>
           </div>
-          <FormDialog />
+          <FormDialog setUpdateTable={setUpdateTable} />
         </div>
-        <SchoolsTable />
+        <SchoolsTable updateTable={updateTable} />
       </div>
     </div>
   );
