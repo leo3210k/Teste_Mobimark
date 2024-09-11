@@ -73,7 +73,7 @@ function Schools() {
                 value={filterCity}
                 onChange={e => setFilterCity(e.target.value)}
                 label="Cidade"
-                className="w-[10rem] !bg-white"
+                className="w-[13rem] !bg-white"
               >
                 <MenuItem value='' key="empty">Todos</MenuItem>
                 {cities.map(city => {
