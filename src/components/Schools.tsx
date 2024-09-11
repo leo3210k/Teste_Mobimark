@@ -35,10 +35,6 @@ function Schools() {
     fetchData();
   }, []);
 
-  const handleChangeCity = (event: SelectChangeEvent) => {
-    setFilterCity(event.target.value);
-  };
-
   const filteredData = rows.filter(item => {
     return (
       (item.nome.toLowerCase().includes(searchText.toLowerCase()) || item.cidade.toLowerCase().includes(searchText.toLowerCase())) &&
