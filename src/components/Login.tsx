@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
+import { Alert, Button, Snackbar } from "@mui/material";
 import { BASE_URL } from "./utils/Api";
 import axios from "axios";
 
 function Login() {
   const [email, setEmail] = React.useState("leocoelho.pi@gmail.com");
   const [password, setPassword] = React.useState("53nhaD0L30");
+  const [openAlert, setOpenAlert] = useState(false);
 
   const navigate = useNavigate();
 
@@ -24,13 +25,19 @@ function Login() {
           navigate("/", { state: { successfulLogin: true } });
         })
         .catch(err => {
+          setOpenAlert(true);
           console.log(err);
         })
 
     } catch (error) {
+      setOpenAlert(true);
       console.error('Erro ao adicionar escola:', error);
     }
   }
+
+  const handleClose = () => {
+    setOpenAlert(false);
+  };
 
   return (
     <div className="flex">
@@ -95,6 +102,16 @@ function Login() {
           alt="login-background"
         />
       </div>
+      <Snackbar
+        open={openAlert}
+        autoHideDuration={2000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert severity="error" sx={{ width: '100%' }}>
+          E-mail ou senha inválidos!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
