@@ -45,14 +45,15 @@ function Schools() {
       <div className="flex flex-col gap-4">
         <h2 className="text-3xl font-medium mb-6">Escolas</h2>
         <div className="flex justify-between">
-          <div className="flex gap-6">
+          <div className="flex items-center gap-6">
             <TextField
               id="outlined-basic"
               label="Pesquise pelo nome"
-              size="small"
               variant="outlined"
+              size="small"
               value={searchText}
               onChange={e => setSearchText(e.target.value)}
+              className="w-[20rem] !bg-white"
               slotProps={{
                 input: {
                   startAdornment: (
@@ -62,7 +63,6 @@ function Schools() {
                   ),
                 },
               }}
-              className="w-[20rem] !bg-white"
             />
             <FormControl fullWidth>
               <InputLabel id="city-label">Cidade</InputLabel>
