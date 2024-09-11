@@ -7,8 +7,8 @@ import { BASE_URL } from "./utils/Api";
 import axios from "axios";
 
 function Login() {
-  const [email, setEmail] = React.useState("leocoelho.pi@gmail.com");
-  const [password, setPassword] = React.useState("53nhaD0L30");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
   const [openAlert, setOpenAlert] = useState(false);
 
   const navigate = useNavigate();
