@@ -178,7 +178,7 @@ export default function SchoolsTable({ rows, setRows, filteredData, updateTable 
                     </TableCell>
                     <TableCell className="!hidden md:!table-cell" align="center">{row.diretor}</TableCell>
                     <TableCell className="!hidden md:!table-cell" align="center">{row.localizacao}</TableCell>
-                    <TableCell align="center">{row.turnos}</TableCell>
+                    <TableCell className="!hidden sm:!table-cell" align="center">{row.turnos}</TableCell>
                     <TableCell align="center">{row.cidade}</TableCell>
                   </TableRow>
                 );
