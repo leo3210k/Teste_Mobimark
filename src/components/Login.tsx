@@ -47,7 +47,7 @@ function Login() {
       <div className="relative h-screen w-screen lg:w-5/12 lg:h-auto flex">
         <div className="relative flex flex-col justify-center items-center font-black text-black/80 mx-auto">
           <img src="/assets/icons/logo.svg" className="w-72 mb-16" alt="logo" />
-          <form action="" className="flex flex-col gap-8">
+          <form action="" className="flex flex-col items-center gap-8">
             <div className="flex flex-col gap-y-1">
               <label htmlFor="" className="">
                 Email
@@ -61,7 +61,7 @@ function Login() {
                   setEmail(e.target.value)
                   console.log(email)
                 }}
-                className="w-[25rem]"
+                className="w-[20rem] xs:w-[25rem]"
               />
             </div>
             <div className="flex flex-col gap-y-1">
@@ -74,10 +74,10 @@ function Login() {
                 size="small"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-[25rem]"
+                className="w-[20rem] xs:w-[25rem]"
               />
             </div>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-4">
               <a
                 href="/"
                 className="text-xl hover:border-b-2 border-neutral-900"
