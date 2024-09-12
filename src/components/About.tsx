@@ -36,7 +36,7 @@ function About() {
             </ul>
           </li>
         </ol>
-        <img src="/assets/images/illustration.svg" className="absolute h-full -right-20 -bottom-28" alt="illustration" />
+        <img src="/assets/images/illustration.svg" className="absolute hidden lg:block h-[70%] -right-20 -bottom-28" alt="illustration" />
       </div>
     </div>
   );
