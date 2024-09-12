@@ -41,7 +41,7 @@ function Login() {
     <div className="flex">
       <img
         className="w-7/12 h-screen"
-        src="/assets/images/login-image.png"
+        src="/assets/images/children.jpg"
         alt="login-image"
       />
       <div className="relative w-5/12 flex">
