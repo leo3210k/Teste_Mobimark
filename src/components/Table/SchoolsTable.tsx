@@ -202,6 +202,8 @@ export default function SchoolsTable({ rows, setRows, filteredData, updateTable 
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
+          labelRowsPerPage="Linhas por página"
+          labelDisplayedRows={({ from, to, count }) => `${from}-${to} de ${count}`}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
