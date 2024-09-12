@@ -157,7 +157,7 @@ export default function FormDialog({ setUpdateTable }: { setUpdateTable: React.D
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button type="submit">Confirmar</Button>
+          <Button type="submit" className="!text-white !bg-[#6691ff] hover:!bg-[#567bd8]">Confirmar</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
