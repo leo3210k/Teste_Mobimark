@@ -74,7 +74,7 @@ function Schools() {
                 size="small"
                 value={searchText}
                 onChange={e => setSearchText(e.target.value)}
-                className="w-[25rem] !bg-white"
+                className="w-[12rem] !bg-white"
                 slotProps={{
                   input: {
                     startAdornment: (
@@ -85,7 +85,7 @@ function Schools() {
                   },
                 }}
               />
-              <FormControl fullWidth size="small">
+              <FormControl fullWidth size="small" className="!w-[10rem] !bg-white">
                 <InputLabel id="city-label">Cidade</InputLabel>
                 <Select
                   labelId="city-label"
@@ -93,7 +93,6 @@ function Schools() {
                   value={filterCity}
                   onChange={e => setFilterCity(e.target.value)}
                   label="Cidade"
-                  className="w-[13rem] !bg-white"
                 >
                   <MenuItem value='' key="empty">Todos</MenuItem>
                   {cities.map(city => {
