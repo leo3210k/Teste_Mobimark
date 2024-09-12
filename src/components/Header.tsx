@@ -30,7 +30,6 @@ function Header() {
       <div className="flex-1"></div>
       <nav className="flex-1 flex justify-center gap-x-12 text-gray-900">
         <CustomLink href="/" title="Início"/>
-        <CustomLink href="/" title="Escolas"/>
         <CustomLink href="/" title="Sobre"/>
       </nav>
       <div className="flex-1 flex justify-end items-center gap-6">
