@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import CustomLink from './utils/CustomLink';
 import LogOut from './LogOut';
+import { Link } from 'react-router-dom';
 
 interface UserData {
   nome: string;
@@ -27,7 +28,9 @@ function Header() {
 
   return (
     <div className="flex items-center bg-white shadow-sm px-6">
-      <img src="/assets/icons/logo.svg" className="flex-1 h-10 cursor-pointer" alt="book" />
+      <Link to="/" className="flex-1">
+        <img src="/assets/icons/logo.svg" className="h-10 cursor-pointer" alt="book" />
+      </Link>
       <nav className="flex-1 flex justify-center gap-x-12 text-gray-900">
         <CustomLink href="/" title="Início"/>
         <CustomLink href="/sobre" title="Sobre"/>
