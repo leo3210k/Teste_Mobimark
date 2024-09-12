@@ -64,7 +64,7 @@ function Schools() {
       <Header />
       <div className="flex justify-center items-center bg-aqua-haze">
         <div className="flex flex-col gap-4">
-          <h2 className="text-3xl font-medium mb-6">Escolas</h2>
+          <h2 className="text-3xl font-semibold mb-6">Escolas</h2>
           <div className="flex justify-between">
             <div className="flex items-center gap-6">
               <TextField
