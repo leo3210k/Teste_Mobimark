@@ -36,13 +36,13 @@ function Header() {
         <CustomLink href="/sobre" title="Sobre"/>
       </nav>
       <div className="flex-1 flex justify-end items-center gap-6">
-        <img src="/assets/icons/book.svg" className="w-6 h-6 cursor-pointer" alt="book" />
-        <img src="/assets/icons/gear.svg" className="w-6 h-6 cursor-pointer" alt="gear" />
-        <div className="relative cursor-pointer">
+        <img src="/assets/icons/book.svg" className="hidden lg:block w-6 h-6 cursor-pointer" alt="book" />
+        <img src="/assets/icons/gear.svg" className="hidden lg:block w-6 h-6 cursor-pointer" alt="gear" />
+        <div className="relative hidden lg:block cursor-pointer">
           <img src="/assets/icons/bell.svg" className="w-6 h-6" alt="bell" />
           <div className="absolute -top-0.5 right-0 w-3 h-3 bg-royal-blue rounded-full"></div>
         </div>
-        <img src="/assets/icons/profile.svg" className="w-10 h-10 cursor-pointer" alt="profile" />
+        <img src="/assets/icons/profile.svg" className="hidden md:block w-10 h-10 cursor-pointer" alt="profile" />
         <span className="font-bold">{ username }</span>
         <img src="/assets/icons/down_arrow.svg" onClick={handleMenuClick} className="w-8 h-8 cursor-pointer" alt="down_arrow" />
         <LogOut anchorEl={anchorEl} setAnchorEl={setAnchorEl} />
