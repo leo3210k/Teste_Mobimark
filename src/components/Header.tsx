@@ -27,11 +27,11 @@ function Header() {
   }, [])
 
   return (
-    <div className="flex items-center bg-white shadow-sm px-6">
+    <div className="flex items-center gap-x-4 bg-white shadow-sm px-6">
       <Link to="/" className="flex-1">
         <img src="/assets/icons/logo.svg" className="h-10 cursor-pointer" alt="book" />
       </Link>
-      <nav className="flex justify-center items-center gap-x-12 text-gray-900">
+      <nav className="flex justify-center items-center gap-x-4 sm:gap-x-12 text-gray-900">
         <CustomLink href="/" title="Início"/>
         <CustomLink href="/sobre" title="Sobre"/>
       </nav>
@@ -44,7 +44,7 @@ function Header() {
         </div>
         <img src="/assets/icons/profile.svg" className="hidden md:block w-10 h-10 cursor-pointer" alt="profile" />
         <span className="hidden sm:block font-bold">{ username }</span>
-        <img src="/assets/icons/down_arrow.svg" onClick={handleMenuClick} className="w-8 h-8 cursor-pointer ml-6 sm:ml-0" alt="down_arrow" />
+        <img src="/assets/icons/down_arrow.svg" onClick={handleMenuClick} className="w-8 h-8 cursor-pointer xs:ml-6 sm:ml-0" alt="down_arrow" />
         <LogOut anchorEl={anchorEl} setAnchorEl={setAnchorEl} />
       </div>
     </div>
