@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       screens: {
         'xs': '500px',
+        'xl': '1280px'
       },
       fontFamily: {
         'mulish': ['Mulish', 'sans-serif']
