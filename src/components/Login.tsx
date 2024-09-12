@@ -86,7 +86,7 @@ function Login() {
               </a>
               <Button
                 variant="contained"
-                className="!capitalize w-40 h-14 !bg-[#6691ff] hover:!bg-[#567bd8] !font-medium"
+                className="!capitalize w-40 h-14 !text-lg !bg-[#6691ff] hover:!bg-[#567bd8] !font-medium"
                 onClick={onSubmit}
               >
                 Entrar
