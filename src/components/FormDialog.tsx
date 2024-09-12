@@ -76,7 +76,7 @@ export default function FormDialog({ setUpdateTable }: { setUpdateTable: React.D
 
   return (
     <React.Fragment>
-      <Button variant="contained" onClick={handleClickOpen} className="!text-base !font-mulish !bg-[#6691ff] !normal-case !px-[2.2rem] !py-[0.6rem]">
+      <Button variant="contained" onClick={handleClickOpen} className="!text-base !font-mulish !bg-[#6691ff] hover:!bg-[#567bd8] !normal-case !px-[2.2rem] !py-[0.6rem]">
         Nova Escola
       </Button>
       <Dialog
