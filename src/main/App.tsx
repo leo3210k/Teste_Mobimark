@@ -5,8 +5,7 @@ import Header from '../components/Header';
 
 function App() {
   return (
-    <div className="h-screen grid grid-rows-[80px,1fr]">
-      <Header />
+    <div className="">
       <Outlet />
     </div>
   );

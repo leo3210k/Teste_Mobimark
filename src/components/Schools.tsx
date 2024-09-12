@@ -15,6 +15,7 @@ import FormDialog, { City } from "./FormDialog";
 import { BASE_URL, CONFIG } from "./utils/Api";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 function Schools() {
   const [rows, setRows] = useState<TableData[]>([]);
@@ -59,62 +60,65 @@ function Schools() {
   });
 
   return (
-    <div className="flex justify-center items-center bg-aqua-haze">
-      <div className="flex flex-col gap-4">
-        <h2 className="text-3xl font-medium mb-6">Escolas</h2>
-        <div className="flex justify-between">
-          <div className="flex items-center gap-6">
-            <TextField
-              id="outlined-basic"
-              label="Pesquise pelo nome"
-              variant="outlined"
-              size="small"
-              value={searchText}
-              onChange={e => setSearchText(e.target.value)}
-              className="w-[25rem] !bg-white"
-              slotProps={{
-                input: {
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <img src="/assets/icons/search.svg" alt="search" />
-                    </InputAdornment>
-                  ),
-                },
-              }}
-            />
-            <FormControl fullWidth size="small">
-              <InputLabel id="city-label">Cidade</InputLabel>
-              <Select
-                labelId="city-label"
-                id="city"
-                value={filterCity}
-                onChange={e => setFilterCity(e.target.value)}
-                label="Cidade"
-                className="w-[13rem] !bg-white"
-              >
-                <MenuItem value='' key="empty">Todos</MenuItem>
-                {cities.map(city => {
-                  return (
-                    <MenuItem value={city.descricao} key={city.id}>{city.descricao}</MenuItem>
-                  )
-                })}
-              </Select>
-            </FormControl>
+    <div className="h-screen grid grid-rows-[80px,1fr]">
+      <Header />
+      <div className="flex justify-center items-center bg-aqua-haze">
+        <div className="flex flex-col gap-4">
+          <h2 className="text-3xl font-medium mb-6">Escolas</h2>
+          <div className="flex justify-between">
+            <div className="flex items-center gap-6">
+              <TextField
+                id="outlined-basic"
+                label="Pesquise pelo nome"
+                variant="outlined"
+                size="small"
+                value={searchText}
+                onChange={e => setSearchText(e.target.value)}
+                className="w-[25rem] !bg-white"
+                slotProps={{
+                  input: {
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <img src="/assets/icons/search.svg" alt="search" />
+                      </InputAdornment>
+                    ),
+                  },
+                }}
+              />
+              <FormControl fullWidth size="small">
+                <InputLabel id="city-label">Cidade</InputLabel>
+                <Select
+                  labelId="city-label"
+                  id="city"
+                  value={filterCity}
+                  onChange={e => setFilterCity(e.target.value)}
+                  label="Cidade"
+                  className="w-[13rem] !bg-white"
+                >
+                  <MenuItem value='' key="empty">Todos</MenuItem>
+                  {cities.map(city => {
+                    return (
+                      <MenuItem value={city.descricao} key={city.id}>{city.descricao}</MenuItem>
+                    )
+                  })}
+                </Select>
+              </FormControl>
+            </div>
+            <FormDialog setUpdateTable={setUpdateTable} />
           </div>
-          <FormDialog setUpdateTable={setUpdateTable} />
+          <SchoolsTable rows={rows} setRows={setRows} filteredData={filteredData} updateTable={updateTable} />
         </div>
-        <SchoolsTable rows={rows} setRows={setRows} filteredData={filteredData} updateTable={updateTable} />
+        <Snackbar
+          open={openAlert}
+          autoHideDuration={2000}
+          onClose={handleClose}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        >
+          <Alert severity="success" sx={{ width: '100%' }}>
+            Login bem-sucedido!
+          </Alert>
+        </Snackbar>
       </div>
-      <Snackbar
-        open={openAlert}
-        autoHideDuration={2000}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
-        <Alert severity="success" sx={{ width: '100%' }}>
-          Login bem-sucedido!
-        </Alert>
-      </Snackbar>
     </div>
   );
 }
