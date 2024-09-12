@@ -46,7 +46,7 @@ function Login() {
       />
       <div className="relative w-5/12 flex">
         <div className="relative flex flex-col justify-center items-center font-black text-black mx-auto">
-          <h1 className="text-4xl mb-16">Login</h1>
+          <img src="/assets/icons/logo.svg" className="w-72 mb-16" alt="logo" />
           <form action="" className="flex flex-col gap-8">
             <div className="flex flex-col gap-y-1">
               <label htmlFor="" className="">
