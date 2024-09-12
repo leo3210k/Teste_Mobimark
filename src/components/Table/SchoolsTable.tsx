@@ -144,8 +144,8 @@ export default function SchoolsTable({ rows, setRows, filteredData, updateTable 
     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '100%', mb: 2 }}>
+    <Box sx={{ maxWidth: '100%' }}>
+      <Paper sx={{ maxWidth: '100%', mb: 2 }}>
         <TableContainer>
           <Table
             aria-labelledby="tableTitle"
