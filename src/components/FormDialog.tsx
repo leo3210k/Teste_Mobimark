@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -23,12 +23,12 @@ export interface City {
 }
 
 export default function FormDialog({ setUpdateTable }: { setUpdateTable: React.Dispatch<React.SetStateAction<boolean>>}) {
-  const [open, setOpen] = React.useState(false);
-  const [location, setLocation] = React.useState('');
-  const [cities, setCities] = React.useState<City[]>([]);
-  const [city, setCity] = React.useState('');
+  const [open, setOpen] = useState(false);
+  const [location, setLocation] = useState('');
+  const [cities, setCities] = useState<City[]>([]);
+  const [city, setCity] = useState('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/cidades`, CONFIG);

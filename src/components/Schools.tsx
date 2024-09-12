@@ -17,11 +17,11 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function Schools() {
-  const [rows, setRows] = React.useState<TableData[]>([]);
+  const [rows, setRows] = useState<TableData[]>([]);
   const [updateTable, setUpdateTable] = useState(false);
   const [searchText, setSearchText] = useState('');
   const [filterCity, setFilterCity] = useState('');
-  const [cities, setCities] = React.useState<City[]>([]);
+  const [cities, setCities] = useState<City[]>([]);
   const [openAlert, setOpenAlert] = useState(false);
 
   const location = useLocation();

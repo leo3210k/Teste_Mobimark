@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -69,12 +69,12 @@ function getComparator<Key extends keyof any>(
 }
 
 export default function SchoolsTable({ rows, setRows, filteredData, updateTable }: { rows: TableData[], setRows: React.Dispatch<React.SetStateAction<TableData[]>>, filteredData: TableData[],updateTable: boolean }) {
-  const [order, setOrder] = React.useState<Order>('asc');
-  const [orderBy, setOrderBy] = React.useState<keyof TableData>('nome');
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [order, setOrder] = useState<Order>('asc');
+  const [orderBy, setOrderBy] = useState<keyof TableData>('nome');
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
 
       try {
