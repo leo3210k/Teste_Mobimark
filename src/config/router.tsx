@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../main/App";
 import Main from "../components/Main";
 import Login from "../components/Login";
+import About from '../components/About';
 
 interface ProtectedRouteProps {
   children: JSX.Element;
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/sobre",
+        element: <About />,
       },
     ]
   },
