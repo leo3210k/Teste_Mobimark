@@ -45,7 +45,7 @@ function Login() {
         alt="login-image"
       />
       <div className="relative w-5/12 flex">
-        <div className="relative flex flex-col justify-center items-center font-black text-black mx-auto">
+        <div className="relative flex flex-col justify-center items-center font-black text-black/80 mx-auto">
           <img src="/assets/icons/logo.svg" className="w-72 mb-16" alt="logo" />
           <form action="" className="flex flex-col gap-8">
             <div className="flex flex-col gap-y-1">
@@ -86,7 +86,7 @@ function Login() {
               </a>
               <Button
                 variant="contained"
-                className="!capitalize w-40 h-14 !bg-black/80 hover:!bg-black/90 !font-medium"
+                className="!capitalize w-40 h-14 !bg-[#6691ff] hover:!bg-[#567bd8] !font-medium"
                 onClick={onSubmit}
               >
                 Entrar
