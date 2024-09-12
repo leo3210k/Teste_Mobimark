@@ -30,7 +30,7 @@ function Header() {
       <div className="flex-1"></div>
       <nav className="flex-1 flex justify-center gap-x-12 text-gray-900">
         <CustomLink href="/" title="Início"/>
-        <CustomLink href="/" title="Sobre"/>
+        <CustomLink href="/sobre" title="Sobre"/>
       </nav>
       <div className="flex-1 flex justify-end items-center gap-6">
         <img src="/assets/icons/book.svg" className="w-6 h-6 cursor-pointer" alt="book" />
