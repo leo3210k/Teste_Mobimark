@@ -14,14 +14,14 @@ export default function CustomLink({ href, title, className="" }: linkProps) {
     <Link to={href} className={`${className} relative group`}>
       <li className='inline text-gray-900'>
         {title}
-        {/* <span className={`
+        <span className={`
         h-[1px] inline-block
         absolute left-0 -bottom-0.5 bg-gray-900
         group-hover:w-full transition-[width] ease duration-300
         underline-offset-4
         ${router.pathname === href ? "w-full" : "w-0"}
         `}
-        >&nbsp;</span> */}
+        >&nbsp;</span>
       </li>
     </Link>
   )
