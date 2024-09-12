@@ -6,7 +6,7 @@ function About() {
   return (
     <div className="relative h-screen grid grid-rows-[80px,1fr] overflow-hidden">
       <Header />
-      <div className="flex items-center bg-aqua-haze pl-20">
+      <div className="flex items-center bg-aqua-haze p-12 sm:pl-20">
         <ol className="list-decimal text-2xl font-semibold text-[#6691ff]">
           <li>Link para meu portfólio: &nbsp;
             <Link target="_blank" to="https://portfolio-leonardocoelho.vercel.app/" className="border-b-2 border-[#6691ff]">
