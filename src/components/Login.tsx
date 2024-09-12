@@ -40,11 +40,11 @@ function Login() {
   return (
     <div className="flex">
       <img
-        className="w-7/12 h-screen"
+        className="hidden lg:block w-7/12 h-screen"
         src="/assets/images/children.jpg"
         alt="login-image"
       />
-      <div className="relative w-5/12 flex">
+      <div className="relative h-screen w-screen lg:w-5/12 lg:h-auto flex">
         <div className="relative flex flex-col justify-center items-center font-black text-black/80 mx-auto">
           <img src="/assets/icons/logo.svg" className="w-72 mb-16" alt="logo" />
           <form action="" className="flex flex-col gap-8">
