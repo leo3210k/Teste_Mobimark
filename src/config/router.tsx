@@ -18,7 +18,6 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   return children;
 };
 
-
 const router = createBrowserRouter([
   {
     path: "/",
