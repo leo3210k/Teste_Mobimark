@@ -63,7 +63,7 @@ function Schools() {
     <div className="h-screen grid grid-rows-[80px,1fr]">
       <Header />
       <div className="flex justify-center items-center bg-aqua-haze">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col items-center gap-4">
           <h2 className="text-4xl text-[#6691ff] font-semibold mb-6">Escolas</h2>
           <div className="flex justify-between">
             <div className="flex items-center gap-6">
