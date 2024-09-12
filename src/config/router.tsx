@@ -38,7 +38,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/sobre",
-        element: <About />,
+        element: (
+          <ProtectedRoute>
+            <About />
+          </ProtectedRoute>
+        )
       },
     ]
   },
