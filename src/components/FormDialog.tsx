@@ -87,7 +87,7 @@ export default function FormDialog({ setUpdateTable }: { setUpdateTable: React.D
           onSubmit
         }}
       >
-        <DialogTitle>Adicionar escola</DialogTitle>
+        <DialogTitle className="!text-2xl !text-[#6691ff]">Adicionar escola</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Aqui você adiciona novas escolas a serem colocadas
