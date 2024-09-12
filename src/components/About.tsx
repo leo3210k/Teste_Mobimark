@@ -7,7 +7,7 @@ function About() {
     <div className="relative h-screen grid grid-rows-[80px,1fr] overflow-hidden">
       <Header />
       <div className="flex items-center bg-aqua-haze pl-20">
-        <ol className="list-decimal text-[#6691ff]">
+        <ol className="list-decimal text-2xl font-semibold text-[#6691ff]">
           <li>Link para meu portfólio: &nbsp;
             <Link target="_blank" to="https://portfolio-leonardocoelho.vercel.app/" className="border-b-2 border-[#6691ff]">
               PORTFÓLIO
@@ -31,6 +31,9 @@ function About() {
           </li>
           <li>
             Sugestões:
+            <ul>
+              <li>Adicionar endpoint get cidade por id</li>
+            </ul>
           </li>
         </ol>
         <img src="/assets/images/illustration.svg" className="absolute h-full -right-20 -bottom-28" alt="illustration" />
