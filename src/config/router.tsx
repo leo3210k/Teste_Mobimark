@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../main/App";
-import Main from "../components/Main";
 import Login from "../components/Login";
 import About from '../components/About';
+import Schools from '../components/Schools';
 
 interface ProtectedRouteProps {
   children: JSX.Element;
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <ProtectedRoute>
-            <Main />
+            <Schools />
           </ProtectedRoute>
         )
       },
