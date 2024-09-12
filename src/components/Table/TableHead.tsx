@@ -4,7 +4,7 @@ import { Box, TableCell, TableHead, TableRow, TableSortLabel } from '@mui/materi
 import { visuallyHidden } from '@mui/utils';
 
 interface HeadCell {
-  disablePadding: boolean;
+  mobileHidden: boolean;
   id: keyof TableData;
   label: string;
   numeric: boolean;
@@ -14,31 +14,31 @@ const headCells: readonly HeadCell[] = [
   {
     id: 'nome',
     numeric: false,
-    disablePadding: false,
+    mobileHidden: false,
     label: 'Nome',
   },
   {
     id: 'diretor',
     numeric: true,
-    disablePadding: false,
+    mobileHidden: true,
     label: 'Diretor',
   },
   {
     id: 'localizacao',
     numeric: true,
-    disablePadding: false,
+    mobileHidden: true,
     label: 'Localizacao',
   },
   {
     id: 'turnos',
     numeric: true,
-    disablePadding: false,
+    mobileHidden: false,
     label: 'Turnos',
   },
   {
     id: 'cidade',
     numeric: true,
-    disablePadding: false,
+    mobileHidden: false,
     label: 'Cidade',
   },
 ];
@@ -65,7 +65,7 @@ export function EnhancedTableHead(props: EnhancedTableProps) {
           <TableCell
             key={headCell.id}
             align='center'
-            padding={headCell.disablePadding ? 'none' : 'normal'}
+            className={headCell.mobileHidden ? '!hidden md:!table-cell' : ''}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel

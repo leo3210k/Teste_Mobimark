@@ -148,7 +148,6 @@ export default function SchoolsTable({ rows, setRows, filteredData, updateTable 
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
           <Table
-            sx={{ minWidth: 1300 }}
             aria-labelledby="tableTitle"
             size='medium'
           >
@@ -177,8 +176,8 @@ export default function SchoolsTable({ rows, setRows, filteredData, updateTable 
                     >
                       {row.nome}
                     </TableCell>
-                    <TableCell align="center">{row.diretor}</TableCell>
-                    <TableCell align="center">{row.localizacao}</TableCell>
+                    <TableCell className="!hidden md:!table-cell" align="center">{row.diretor}</TableCell>
+                    <TableCell className="!hidden md:!table-cell" align="center">{row.localizacao}</TableCell>
                     <TableCell align="center">{row.turnos}</TableCell>
                     <TableCell align="center">{row.cidade}</TableCell>
                   </TableRow>
