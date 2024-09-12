@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'xs': '500px'
+        'xs': '500px',
       },
       fontFamily: {
         'mulish': ['Mulish', 'sans-serif']
