@@ -18,8 +18,7 @@ function LogOut({ anchorEl, setAnchorEl }: { anchorEl: null | HTMLElement, setAn
         anchorEl={anchorEl}
         id="account-menu"
         open={open}
-        onClose={logout}
-        onClick={logout}
+        onClose={() => setAnchorEl(null)}
         slotProps={{
           paper: {
             elevation: 0,
