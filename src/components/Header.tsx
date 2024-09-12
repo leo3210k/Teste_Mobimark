@@ -31,7 +31,7 @@ function Header() {
       <Link to="/" className="flex-1">
         <img src="/assets/icons/logo.svg" className="h-10 cursor-pointer" alt="book" />
       </Link>
-      <nav className="flex-1 flex justify-center gap-x-12 text-gray-900">
+      <nav className="flex justify-center items-center gap-x-12 text-gray-900">
         <CustomLink href="/" title="Início"/>
         <CustomLink href="/sobre" title="Sobre"/>
       </nav>
